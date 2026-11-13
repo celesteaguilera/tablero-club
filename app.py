@@ -7,8 +7,8 @@ from pathlib import Path
 
 # 1. CONFIGURACION DE LA PAGINA
 st.set_page_config(
-    page_title="Un tablero para el club",
-    page_icon="🏆",
+    page_title="Tablero Administrativo",
+    page_icon="📊",
     layout="wide"
 )
 
@@ -74,7 +74,7 @@ def iniciar_base():
             ]
 
             con.executemany(
-                "INSERT INTO socios VALUES (?, ?, ?, ?)",
+                "INSERT OR IGNORE INTO socios (id, nombre, actividad, estado) VALUES (?, ?, ?, ?)",
                 socios_demo
             )
 
@@ -197,7 +197,7 @@ section[data-testid="stSidebar"] {
 """, unsafe_allow_html=True)
 
 # 5. MENU
-st.sidebar.title("🏆 Club Deportivo")
+st.sidebar.title("Gestion Administrativa")
 st.sidebar.caption("Proyecto Grupo F")
 st.sidebar.caption("Prototipo con datos ficticios")
 
@@ -211,7 +211,7 @@ pagina = st.sidebar.radio(
     ]
 )
 
-st.title("🏆 Un tablero para el club")
+st.title("Tablero Administrativo")
 st.caption(
     "Socios, cuotas y actividades en una sola pantalla"
 )
