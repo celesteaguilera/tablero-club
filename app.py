@@ -123,6 +123,21 @@ def iniciar_base():
 
 iniciar_base()
 
+# Asegurar cuotas vencidas para la demostracion
+with conectar() as con:
+    for socio_id in [2, 4, 6]:
+        periodo = MES_ANTERIOR
+        vencimiento = (
+            date.fromisoformat(periodo + "-01")
+            + timedelta(days=9)
+        ).isoformat()
+
+        con.execute("""
+            INSERT OR IGNORE INTO cuotas
+            (socio_id, periodo, importe, vencimiento)
+            VALUES (?, ?, ?, ?)
+        """, (socio_id, periodo, CUOTA, vencimiento))
+
 # 3. CONSULTAS
 def consultar(sql, parametros=()):
     with conectar() as con:
