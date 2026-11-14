@@ -126,7 +126,7 @@ iniciar_base()
 # Asegurar cuotas vencidas para la demostracion
 with conectar() as con:
     for socio_id in [2, 4, 6]:
-        periodo = MES_ANTERIOR
+        periodo = "2026-09"
         vencimiento = (
             date.fromisoformat(periodo + "-01")
             + timedelta(days=9)
