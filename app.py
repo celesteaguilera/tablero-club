@@ -255,7 +255,7 @@ inscriptos = len(activos)
 if pagina == "Resumen general":
     st.header("📊 Resumen general")
 
-    a, b, c, d, e = st.columns(5)
+    a, b, c, d, e = st.columns([1, 1, 1.5, 1.5, 1])
 
     a.metric("Socios activos", socios_activos)
     b.metric("Cuotas vencidas", cuotas_vencidas)
