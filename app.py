@@ -261,7 +261,7 @@ if pagina == "Resumen general":
     b.metric("Cuotas vencidas", cuotas_vencidas)
     c.metric("Recaudado este mes", dinero(recaudacion))
     deuda_total = int(cuotas.loc[cuotas["pendiente"], "importe"].sum())
-d.metric("Deuda total pendiente", dinero(deuda_total))
+    d.metric("Deuda total pendiente", dinero(deuda_total))
     e.metric("Inscriptos", inscriptos)
 
     st.divider()
